@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import UrlShortener from './UrlShortener';
+import RedirectPage from './RedirectPage';
+import { log } from './logging';
 
 function App() {
+  const [urls, setUrls] = useState(() => {
+    const saved = localStorage.getItem('shortenedUrls');
+    return saved ? JSON.parse(saved) : {};
+  });
+
+  useEffect(() => {
+    localStorage.setItem('shortenedUrls', JSON.stringify(urls));
+  }, [urls]);
+
+  log('frontend', 'info', 'component', 'App component loaded');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<UrlShortener urls={urls} setUrls={setUrls} />} />
+        <Route path="/redirect/:shortCode" element={<RedirectPage urls={urls} />} />
+      </Routes>
+    </Router>
   );
 }
 
