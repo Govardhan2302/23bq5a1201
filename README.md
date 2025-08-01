@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# URL Shortener
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a React-based web application designed to shorten URLs for evaluation purposes. The app allows users to input a long URL, generate a shortened version, and access the original URL via the shortened link within a 30-minute validity period.
 
-## Available Scripts
+## Features
+- Shortens any valid URL into a mock shortened format (e.g., `http://short.me/abcde`).
+- Redirects to the original URL when the shortened link is clicked (valid for 30 minutes).
+- Utilizes Material-UI for a modern, responsive user interface.
+- Implements React Router for navigation and logging middleware for tracking events.
+- Persists shortened URLs using localStorage for session continuity.
 
-In the project directory, you can run:
+## Technologies Used
+- **Frontend**: React, Material-UI, React Router DOM
+- **Other**: LocalStorage for state persistence, Fetch API for logging
 
-### `npm start`
+## Usage
+1. Clone or download the repository.
+2. Navigate to the project folder and run `npm install` to install dependencies.
+3. Start the application with `npm start` to launch it at `http://localhost:3000`.
+4. Enter a URL (e.g., `https://www.udemy.com/course/example`) in the input field.
+5. Click "Shorten URL" to generate a shortened link.
+6. Click the shortened link to redirect to the original URL (valid for 30 minutes).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Screenshots
+Below are screenshots of the application in action:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Home Page (Input and Shorten)**  
+  <img width="1846" height="806" alt="image" src="https://github.com/user-attachments/assets/becf662e-fdff-47aa-a9f9-e8306f37904f" />
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+- **Redirect Page (Successful Redirect)**  
+  <img width="1892" height="654" alt="image" src="https://github.com/user-attachments/assets/710d4552-6c62-43d3-a895-b3b8a1bc6716" />
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Notes
+- The shortened URLs are mock (e.g., `http://short.me/`) and work locally for demonstration.
+- Logging to the evaluation service may show errors due to CORS or authentication issues with the test server.
+- Ensure the `access-token` in `logging.js` is replaced with a valid token from the evaluation service.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Setup Instructions
+1. Ensure Node.js is installed.
+2. Run `npm install` and `npm start` in the project directory.
+3. Update the `access-token` in `src/frontend/logging.js` with your evaluation token.
